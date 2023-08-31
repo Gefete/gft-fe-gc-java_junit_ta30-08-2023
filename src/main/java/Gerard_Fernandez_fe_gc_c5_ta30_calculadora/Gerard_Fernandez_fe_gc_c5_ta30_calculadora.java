@@ -1,19 +1,20 @@
 package Gerard_Fernandez_fe_gc_c5_ta30_calculadora;
 
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 public class Gerard_Fernandez_fe_gc_c5_ta30_calculadora extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5151588336593355815L;
 	private JPanel contentPane;
 	private String conjuntoOp="";
 	private Calculadora calcular = new Calculadora();
@@ -35,7 +36,7 @@ public class Gerard_Fernandez_fe_gc_c5_ta30_calculadora extends JFrame {
 		pantalla.setBounds(25, 37, 428, 38);
 		contentPane.add(pantalla);
 
-        
+        //BOTON SUMAR
         JButton sumarBtn = new JButton("+");
         sumarBtn.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -46,6 +47,7 @@ public class Gerard_Fernandez_fe_gc_c5_ta30_calculadora extends JFrame {
         sumarBtn.setBounds(343, 157, 89, 23);
         contentPane.add(sumarBtn);
         
+        //BOTON RESTA
         JButton restarBtn = new JButton("-");
         restarBtn.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -56,6 +58,7 @@ public class Gerard_Fernandez_fe_gc_c5_ta30_calculadora extends JFrame {
         restarBtn.setBounds(343, 191, 89, 23);
         contentPane.add(restarBtn);
         
+        //BOTON MULTIPLICACION
         JButton multiplcarBtn = new JButton("*");
         multiplcarBtn.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -66,6 +69,7 @@ public class Gerard_Fernandez_fe_gc_c5_ta30_calculadora extends JFrame {
         multiplcarBtn.setBounds(343, 225, 89, 23);
         contentPane.add(multiplcarBtn);
         
+        //BOTON DIVISION
         JButton divisionBtn = new JButton("/");
         divisionBtn.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -76,21 +80,24 @@ public class Gerard_Fernandez_fe_gc_c5_ta30_calculadora extends JFrame {
         divisionBtn.setBounds(343, 259, 89, 23);
         contentPane.add(divisionBtn);
         
+        //BOTON RESULTADO
         JButton btnNewButton = new JButton("=");
         btnNewButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		pantalla.setText(calcular.calcular(conjuntoOp));
-        		
         	}
         });
         btnNewButton.setBounds(343, 293, 89, 23);
         contentPane.add(btnNewButton);
         
+        //BOTON BORRAR ULTIMO CARACTER
         JButton btnNewButton_1 = new JButton("<-");
         btnNewButton_1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		if(conjuntoOp.length()>0){
+        			//Recoge el String y borra la ultima posicion se le resta 1 por que length no tiene en cuenta el 0
 	        		conjuntoOp=conjuntoOp.substring(0, conjuntoOp.length()-1);
+	        		//Se envia a la pantalla
 	        		pantalla.setText(conjuntoOp);
         		}
         	}
@@ -98,6 +105,7 @@ public class Gerard_Fernandez_fe_gc_c5_ta30_calculadora extends JFrame {
         btnNewButton_1.setBounds(343, 123, 89, 23);
         contentPane.add(btnNewButton_1);
         
+        //BOTON LIMPIAR
         JButton btnNewButton_2 = new JButton("C");
         btnNewButton_2.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -108,6 +116,7 @@ public class Gerard_Fernandez_fe_gc_c5_ta30_calculadora extends JFrame {
         btnNewButton_2.setBounds(244, 123, 89, 23);
         contentPane.add(btnNewButton_2);
         
+        //BOTON LIMPIAR
         JButton btnNewButton_3 = new JButton("CE");
         btnNewButton_3.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -261,39 +270,6 @@ public class Gerard_Fernandez_fe_gc_c5_ta30_calculadora extends JFrame {
         JButton btnNewButton_19 = new JButton("±");
         btnNewButton_19.setBounds(46, 293, 89, 23);
         contentPane.add(btnNewButton_19);
-
-        /*
-        sumButton.addActionListener(new ActionListener() {
-        	Calculadora calculate=new Calculadora();
-	        @Override
-	        public void actionPerformed(ActionEvent e) {
-	        	resultField.setText(calculate.calculateAndSetResult(textField1.getText(), textField2.getText(), "+"));
-            }
-        });
-
-        subtractButton.addActionListener(new ActionListener() {
-        	Calculadora calculate=new Calculadora();
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            	resultField.setText(calculate.calculateAndSetResult(textField1.getText(), textField2.getText(), "-"));
-            }
-        });
-
-        multiplyButton.addActionListener(new ActionListener() {
-        	Calculadora calculate=new Calculadora();
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            	resultField.setText(calculate.calculateAndSetResult(textField1.getText(), textField2.getText(), "*"));
-            }
-        });
-
-        divideButton.addActionListener(new ActionListener() {
-        	Calculadora calculate=new Calculadora();
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            	resultField.setText(calculate.calculateAndSetResult(textField1.getText(), textField2.getText(), "/"));
-            }
-        });*/
 
 	}
 }
